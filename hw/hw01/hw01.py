@@ -42,8 +42,8 @@ def two_of_three(i, j, k):
     >>> two_of_three(5, 5, 5)
     50
     """
-    return (i + j + k - max(i, j, k) - min(i, j, k)) ** 2 + min(i, j ,k) ** 2
-
+    # return (i + j + k - max(i, j, k) - min(i, j, k)) ** 2 + min(i, j ,k) ** 2
+    return i ** 2 + j ** 2 + k ** 2 - max(i, j, k) ** 2 # More simple
 
 def two_of_three_syntax_check():
     """Check that your two_of_three code consists of nothing but a return statement.
@@ -67,6 +67,7 @@ def largest_factor(n):
     1
     """
     "*** YOUR CODE HERE ***"
+    """
     divisor = 1
     biggest_factor = 1
     while divisor * 2 <= n:
@@ -75,7 +76,13 @@ def largest_factor(n):
         divisor += 1
     
     return biggest_factor
-
+    """
+    # The question just needs us to find the largest factor of n. So we can find it from n to 1.
+    factor = n - 1
+    while factor > 0:
+        if n % factor == 0:
+            return factor
+        factor -= 1
 
 def hailstone(n):
     """Print the hailstone sequence starting at n and return its
